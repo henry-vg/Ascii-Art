@@ -10,23 +10,18 @@
 <body>
     <div class="containerSettings">
         <input type="file" accept="image/*" id="browseButton">
-        <div>
-            <label>Tamanho da Célula:
-                <input type="number" min="1" max="40" value="8" step="1" id="cellSizeNumber">
-                px
-            </label>
-        </div>
 
         <div>
             <label>Tamanho da Imagem:
-                <input type="number" min="250" max="10000" value="750" step="5" id="outputSizeNumber">
+                <input type="number" min="0" max="10000" value="350" step="5" id="outputSizeNumber">
                 px
             </label>
         </div>
 
         <div>
             <label>Tamanho da Fonte:
-                <input type="number" min="0.5" max="10" value="1" step="0.05" id="fontSizeNumber">
+                <input type="number" min="1" max="48" value="10" step="1" id="fontSizeNumber">
+                px
             </label>
         </div>
 
@@ -64,7 +59,6 @@
 
     </div>
     <div class="containerResult">
-        <img id="image">
         <p id="asciiParagraph"></p>
     </div>
 

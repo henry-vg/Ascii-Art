@@ -1,12 +1,11 @@
 const browseButton = document.getElementById('browseButton');
 const button = document.getElementById('generateButton');
-const image = document.getElementById('image');
+const image = new Image();
 const asciiParagraph = document.getElementById('asciiParagraph');
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });
 const backColorSelect = document.getElementById('backColorSelect');
 const outputSizeNumber = document.getElementById('outputSizeNumber');
-const cellSizeNumber = document.getElementById('cellSizeNumber');
 const fontSizeNumber = document.getElementById('fontSizeNumber');
 const colorTypeSelect = document.getElementById('colorTypeSelect');
 const charsText = document.getElementById('charsText');
@@ -60,33 +59,22 @@ function setBackColor() {
 }
 
 image.onload = () => {
-    image.removeAttribute('width');
-    image.removeAttribute('height');
-
     _outputSize = outputSizeNumber.value;
-    _cellSize = cellSizeNumber.value;
+    _cellSize = 1;
     _fontSize = fontSizeNumber.value;
     _colorType = colorTypeSelect.value;
 
     const imageSize = getImageSize(image, _outputSize);
-
-    image.width = imageSize[0];
-    image.height = imageSize[1];
+    const fontRatioWidthHeight = 85 / 182;
     canvas.width = imageSize[0] / _cellSize;
-    canvas.height = imageSize[1] / _cellSize;
+    canvas.height = (imageSize[1] * fontRatioWidthHeight) / _cellSize;
 
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
     const ascii = getImageAscii(canvas, context);
-
-    const fontRatioWidthPx = 5 / 9;
-    const fontSize = _fontSize * _cellSize;
-    const fontWidth = fontSize * fontRatioWidthPx;
-    const letterSpacing = (image.width - fontWidth * canvas.width) / canvas.width;
+    const fontSize = _fontSize;
 
     asciiParagraph.style.fontSize = `${fontSize}px`;
-    asciiParagraph.style.letterSpacing = `${letterSpacing}px`;
-    asciiParagraph.style.lineHeight = `${image.height / canvas.height}px`;
 
     asciiParagraph.innerHTML = ascii;
 }
@@ -102,8 +90,6 @@ button.onclick = () => {
 
         reader.onload = (e) => {
             image.src = e.target.result;
-            image.width = 0;
-            image.height = 0;
         }
     }
     else {
