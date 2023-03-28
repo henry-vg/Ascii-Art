@@ -1,0 +1,64 @@
+* {
+    font-family: monospace;
+}
+
+.bodyDarkBg {
+    background-color: #141414;
+    color: #dcdcdc;
+}
+
+.bodyWhiteBg {
+    background-color: #f0f0f0;
+    color: #141414;
+}
+
+.containerResult {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSettings {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: auto;
+    width: fit-content;
+    border-style: solid;
+    border-width: thin;
+    padding: 15px;
+}
+
+#asciiParagraph {
+    font-weight: bolder;
+    white-space: pre;
+    text-align: center;
+    border-style: solid;
+    border-width: thin;
+    padding: 5px;
+}
+
+#browseButton::-webkit-file-upload-button,
+#generateButton,
+#colorTypeSelect,
+#backColorSelect {
+    font-family: monospace;
+    padding: 5px 12px;
+}
+
+#browseButton::-webkit-file-upload-button,
+#generateButton,
+#colorTypeSelect,
+#backColorSelect,
+#browseButton,
+#restoreButton,
+#reverseButton {
+    cursor: pointer;
+}
+
+*:disabled {
+    background-color: #8f8f8f;
+    color: #5d5d5d;
+    border-radius: 3px;
+}

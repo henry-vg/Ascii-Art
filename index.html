@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Project</title>
+</head>
+
+<body>
+    <div class="containerSettings">
+        <input type="file" accept="image/*" id="browseButton">
+        <div>
+            <label>Tamanho da Célula:
+                <input type="number" min="1" max="40" value="8" step="1" id="cellSizeNumber">
+                px
+            </label>
+        </div>
+
+        <div>
+            <label>Tamanho da Imagem:
+                <input type="number" min="250" max="10000" value="750" step="5" id="outputSizeNumber">
+                px
+            </label>
+        </div>
+
+        <div>
+            <label>Tamanho da Fonte:
+                <input type="number" min="0.5" max="10" value="1" step="0.05" id="fontSizeNumber">
+            </label>
+        </div>
+
+        <div>
+            <label>Tipo de Coloração:
+                <select id="colorTypeSelect">
+                    <option value="coloured">Colorido</option>
+                    <option value="grayscale">Escala de Cinza</option>
+                    <option value="no" selected>Nenhuma</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>Caracteres:
+                <input type="text" id="charsText">
+                <button id="reverseButton">Inverter</button>
+                <button id="restoreButton">Restaurar</button>
+            </label>
+        </div>
+
+        <div>
+            <label>Cor do Fundo:
+                <select id="backColorSelect">
+                    <option value="light">Claro</option>
+                    <option value="dark" selected>Escuro</option>
+                </select>
+            </label>
+        </div>
+
+        <div style="text-align: center;">
+            <button id="generateButton">Gerar</button>
+        </div>
+
+
+    </div>
+    <div class="containerResult">
+        <img id="image">
+        <p id="asciiParagraph"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
